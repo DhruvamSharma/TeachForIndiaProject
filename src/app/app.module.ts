@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { APP_ROUTES_PROVIDER } from './app.routes';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
+import { DashboardComponent } from './landing/staff/dashboard/dashboard.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingComponent
+    LandingComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

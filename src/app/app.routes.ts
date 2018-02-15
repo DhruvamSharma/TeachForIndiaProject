@@ -1,12 +1,16 @@
 //Modules loading
 import { Routes, RouterModule } from "@angular/router";
-import { Component } from "@angular/core/src/metadata/directives";
 import { LandingComponent } from "./landing/landing.component";
+import { DashboardComponent } from "./landing/staff/dashboard/dashboard.component";
 
 const APP_ROUTES:Routes = [
     {
         path: '',
         component: LandingComponent
+    },
+    {
+        path: 'dashboard',
+        component: DashboardComponent
     }
 ];
 

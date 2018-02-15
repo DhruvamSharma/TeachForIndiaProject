@@ -5,6 +5,10 @@ module.exports = function(app) {
     app.get('/', (req, res) => {
         res.send('api works');
     });
+
+    app.get('/dashboard', (req,res) => {
+        res.send('hello');
+    });
   
     
 }
