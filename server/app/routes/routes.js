@@ -9,6 +9,15 @@ module.exports = function(app) {
     app.get('/dashboard', (req,res) => {
         res.send('hello');
     });
+
+    app.get('/landing', (req,res) => {
+        res.send('hello');
+    });
+
+    // Catch all other routes and return the index file
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname,'../../', 'dist/index.html'));
+    });
   
     
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardService } from '../DashboardService/dashboard.service';
+
 
 @Component({
   selector: 'app-landing',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dashboard:DashboardService) { }
 
   ngOnInit() {
+  }
+
+  callMe() {
+    this.dashboard.findPets();
   }
 
 }
