@@ -9,6 +9,7 @@ import { DashboardComponent } from './landing/staff/dashboard/dashboard.componen
 import { DashboardService } from './DashboardService/dashboard.service';
 import { NewProgramComponent } from './landing/staff/dashboard/new-program/new-program.component';
 import { OldProgramComponent } from './landing/staff/dashboard/old-program/old-program.component';
+import { CreateProgramComponent } from './landing/staff/dashboard/new-program/create-program/create-program.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { OldProgramComponent } from './landing/staff/dashboard/old-program/old-p
     LandingComponent,
     DashboardComponent,
     NewProgramComponent,
-    OldProgramComponent
+    OldProgramComponent,
+    CreateProgramComponent
   ],
   imports: [
     BrowserModule,

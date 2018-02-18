@@ -3,6 +3,7 @@
 import { Routes, RouterModule } from "@angular/router";
 import { LandingComponent } from "./landing/landing.component";
 import { DashboardComponent } from "./landing/staff/dashboard/dashboard.component";
+import { CreateProgramComponent } from "./landing/staff/dashboard/new-program/create-program/create-program.component";
 
 const APP_ROUTES:Routes = [
     
@@ -13,6 +14,10 @@ const APP_ROUTES:Routes = [
     {
         path: 'dashboard',
         component: DashboardComponent
+    },
+    {
+        path: 'create-program',
+        component: CreateProgramComponent
     }
 ];
 

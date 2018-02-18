@@ -141,12 +141,14 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__DashboardService_dashboard_service__ = __webpack_require__("../../../../../src/app/DashboardService/dashboard.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__landing_staff_dashboard_new_program_new_program_component__ = __webpack_require__("../../../../../src/app/landing/staff/dashboard/new-program/new-program.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__landing_staff_dashboard_old_program_old_program_component__ = __webpack_require__("../../../../../src/app/landing/staff/dashboard/old-program/old-program.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__landing_staff_dashboard_new_program_create_program_create_program_component__ = __webpack_require__("../../../../../src/app/landing/staff/dashboard/new-program/create-program/create-program.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -167,7 +169,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_5__landing_landing_component__["a" /* LandingComponent */],
                 __WEBPACK_IMPORTED_MODULE_6__landing_staff_dashboard_dashboard_component__["a" /* DashboardComponent */],
                 __WEBPACK_IMPORTED_MODULE_8__landing_staff_dashboard_new_program_new_program_component__["a" /* NewProgramComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__landing_staff_dashboard_old_program_old_program_component__["a" /* OldProgramComponent */]
+                __WEBPACK_IMPORTED_MODULE_9__landing_staff_dashboard_old_program_old_program_component__["a" /* OldProgramComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__landing_staff_dashboard_new_program_create_program_create_program_component__["a" /* CreateProgramComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -193,7 +196,9 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__landing_landing_component__ = __webpack_require__("../../../../../src/app/landing/landing.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__landing_staff_dashboard_dashboard_component__ = __webpack_require__("../../../../../src/app/landing/staff/dashboard/dashboard.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__landing_staff_dashboard_new_program_create_program_create_program_component__ = __webpack_require__("../../../../../src/app/landing/staff/dashboard/new-program/create-program/create-program.component.ts");
 //Modules loading
+
 
 
 
@@ -205,6 +210,10 @@ var APP_ROUTES = [
     {
         path: 'dashboard',
         component: __WEBPACK_IMPORTED_MODULE_2__landing_staff_dashboard_dashboard_component__["a" /* DashboardComponent */]
+    },
+    {
+        path: 'create-program',
+        component: __WEBPACK_IMPORTED_MODULE_3__landing_staff_dashboard_new_program_create_program_create_program_component__["a" /* CreateProgramComponent */]
     }
 ];
 var APP_ROUTES_PROVIDER = __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* RouterModule */].forRoot(APP_ROUTES);
@@ -340,6 +349,67 @@ var DashboardComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/landing/staff/dashboard/new-program/create-program/create-program.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/landing/staff/dashboard/new-program/create-program/create-program.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n    <div class=\"col-lg-12\">\n      <div class=\"well\" style=\"margin-top: 100px;\">\n            <form>\n            <div class=\"row\">\n              <div class=\"form-group col-lg-6\">\n              <label for= \"firstname\">First Name </label>\n              <input type=\"text\"  class =\"form-control\" id=\"firstname\"  placeholder=\"Enter your first name\">\n            </div>\n              <div class=\"form-group col-lg-6\">\n              <label for= \"lastname\">Last Name </label>\n              <input type=\"text\"  class =\"form-control\" id=\"lastname\"  placeholder=\"Enter your last name\">\n            </div>\n            </div>\n            <div class=\"row\">\n              <div class=\"form-group col-lg-6\">\n              <label for= \"Fathername\">Father's Name </label>\n              <input type=\"text\"  class =\"form-control\" id=\"fathername\"  placeholder=\"Enter your father's name\">\n            </div>\n              <div class=\"form-group col-lg-6\">\n              <label for= \"Mothername\">Mothers Name </label>\n              <input type=\"text\"  class =\"form-control\" id=\"mothername\"  placeholder=\"Enter your Mother's name\">\n            </div>\n            </div>\n            <div class=\"row\">\n              <div class=\"form-group col-lg-4\">\n                <label for=\"inputCourse\">Course</label>\n                <select id=\"inputCourse\" class=\"form-control\">\n                  <option selected>Choose...</option>\n                  <option>...</option>\n                </select>\n              </div>\n              <div class=\"form-group col-lg-4\">\n                <label for=\"inputBranch\">Branch</label>\n                <select id=\"inputBranch\" class=\"form-control\">\n                  <option selected>Choose...</option>\n                  <option>...</option>\n                </select>\n              </div>\n              <div class=\"form-group col-lg-4\">\n                <label for=\"inputYear\"> Current Year</label>\n                <select id=\"inputYear\" class=\"form-control\">\n                  <option selected>Choose...</option>\n                  <option>...</option>\n                </select>\n              </div>  \n            </div>\n             <div class=\"form-group\">\n              <label for=\"inputRollNumber\">Roll Number</label>\n              <input type=\"Number\" class=\"form-control\" id=\"rollNumber\" placeholder=\"14001001036\">\n            </div>\n\n            <div class=\"form-group\">\n              <label for=\"InputEmail1\">Email address</label>\n              <input type=\"email\" class=\"form-control\" id=\"InputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\">\n              <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n            </div>\n\n             <div class=\"form-group\">\n              <label for=\"inputAddress\">Permanent Address</label>\n              <input type=\"text\" class=\"form-control\" id=\"permanentAddress\" placeholder=\"1234 Main St\">\n            </div>\n             <div class=\"form-row\">\n              <div class=\"form-group col-lg-6\">\n                <label for=\"inputCity\">City</label>\n                <input type=\"text\" class=\"form-control\" id=\"permanentCity\">\n              </div>\n              <div class=\"form-group col-lg-4\">\n                <label for=\"inputState\">State</label>\n                <select id=\"permanentState\" class=\"form-control\">\n                  <option selected>Choose...</option>\n                  <option>...</option>\n                </select>\n              </div>\n              <div class=\"form-group col-lg-2\">\n                <label for=\"inputZip\">Zip</label>\n                <input type=\"text\" class=\"form-control\" id=\"permanentZip\">\n              </div>\n            </div>\n\n            <div class=\"form-group\">\n              <label for=\"inputAddress2\">Correspondance Address</label>\n              <input type=\"text\" class=\"form-control\" id=\"correspondanceAddress\" placeholder=\"Apartment, studio, or floor\">\n            </div>\n\n            <div class=\"form-row\">\n              <div class=\"form-group col-lg-6\">\n                <label for=\"inputCity\">City</label>\n                <input type=\"text\" class=\"form-control\" id=\"correspondanceCity\">\n              </div>\n              <div class=\"form-group col-lg-4\">\n                <label for=\"inputState\">State</label>\n                <select id=\"corespondanceState\" class=\"form-control\">\n                  <option selected>Choose...</option>\n                  <option>...</option>\n                </select>\n              </div>\n              <div class=\"form-group col-lg-2\">\n                <label for=\"inputZip\">Zip</label>\n                <input type=\"text\" class=\"form-control\" id=\"correspondanceZip\">\n              </div>\n            </div>\n\n            <div class=\"form-check\">\n              <input type=\"checkbox\" class=\"form-check-input\" id=\"Check1\">\n              <label class=\"form-check-label\" for=\"Check1\">Check me out</label>\n            </div>\n            <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n          </form> \n          </div>\n    </div>\n  </div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/landing/staff/dashboard/new-program/create-program/create-program.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateProgramComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CreateProgramComponent = (function () {
+    function CreateProgramComponent() {
+    }
+    CreateProgramComponent.prototype.ngOnInit = function () {
+    };
+    CreateProgramComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-create-program',
+            template: __webpack_require__("../../../../../src/app/landing/staff/dashboard/new-program/create-program/create-program.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/landing/staff/dashboard/new-program/create-program/create-program.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CreateProgramComponent);
+    return CreateProgramComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/landing/staff/dashboard/new-program/new-program.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -361,7 +431,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/landing/staff/dashboard/new-program/new-program.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card card-inverse\" style=\"background-color: #333; border-color: #333;\" data-toggle=\"modal\" data-target=\"#exampleModalLong\">\n    <div class=\"card-block\">\n      <h3 class=\"card-title\">Special title treatment</h3>\n      <p class=\"card-text\">With supporting text below as a natural lead-in to additional content.</p>\n      <a href=\"#\" class=\"btn btn-primary\" data-toggle=\"tooltip\" data-placement=\"left\" data-original-title=\"Create\" onclick=\"newmail()\">Create a Program</a>\n    </div>\n  </div>\n\n\n\n\n\n  <!-- Modal -->\n<div class=\"modal fade\" id=\"exampleModalLong\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLongTitle\" aria-hidden=\"true\">\n    <div class=\"modal-dialog\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          \n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <!--Trainig Module-->\n  <div class=\"row\">\n    <div class=\"col-lg-12\">\n      <div class=\"well\">\n            <h3>Create an Event</h3>\n            <form>\n              <header>\n                  <div class=\"form-group\">\n                      <label for=\"inputInstititue\">Event Name</label>\n                      <input type=\"text\" name=\"inputInstitituename\" placeholder=\"Event Name\">\n                    </div>\n              </header>\n              \n              \n            <div class=\"form-group\">\n              <h5>Now Add Important Fields As Necessary</h5>\n              <div *ngFor=\"let number of times; let i = index\">\n                <label for=\"inputInstititue\">{{number.type}}</label>\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"remove(i)\">\n                    <span aria-hidden=\"true\">&times;</span>\n                  </button>\n                <input type=\"text\" name=\"inputInstititueaddress\" placeholder=\"Address of the Institute/Company for Summer Training\">\n              </div>\n            </div>\n            <input type=\"text\" name=\"inputInstititueaddress\" style=\"width:40%;\" placeholder=\"Type of Data\" #type required>\n            <button type=\"submit\" class=\"btn btn-primary end\" (click)=\"add(type.value)\">Add More Fields</button>\n  \n            </form>\n            </div>\n        </div>\n      </div>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n          <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n        </div>\n      </div>\n    </div>\n  </div>"
+module.exports = "<div class=\"card card-inverse\" style=\"background-color: #333; border-color: #333;\" data-toggle=\"modal\" data-target=\"#exampleModalLong\">\n    <div class=\"card-block\">\n      <h3 class=\"card-title\">Special title treatment</h3>\n      <p class=\"card-text\">With supporting text below as a natural lead-in to additional content.</p>\n      <a class=\"btn btn-primary\" [routerLink]=\"['/create-program']\" >Create a Program</a>\n    </div>\n  </div>\n\n\n\n\n\n  "
 
 /***/ }),
 
