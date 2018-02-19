@@ -1,17 +1,12 @@
-<!--<ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
-</ul>-->
+
 
 <div class="site">
   <nav class="site-nav flex-center">
     <ul>
-    <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
+    
+  <li><button class="active btn" (click)="shift(1)">News</button></li>
+  <li><button class="active btn" (click)="shift(2)">Contact</button></li>
+  <li><button class="active btn" (click)="shift(3)">About</button></li>
 </ul>
   </nav>
   <main class="site-content">
@@ -20,10 +15,9 @@
     </header>
     <section class="content-topic">
       <!-- main body -->
-      <app-new-program></app-new-program>
-      <hr>
-      <h2>Programs That you've created</h2>
-      <app-old-program></app-old-program>
+      <app-new-program *ngIf="check1"></app-new-program>
+      <app-manage-application *ngIf="check2"></app-manage-application>
+      <app-feedback *ngIf="check3"></app-feedback>
     </section>
   </main>
 </div>
