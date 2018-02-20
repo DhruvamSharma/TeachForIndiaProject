@@ -10,6 +10,10 @@ module.exports = function(app) {
         res.send('hello');
     });
 
+    app.get('/manage-applications', (req,res) => {
+        res.send('hello');
+    });
+
     app.get('/landing', (req,res) => {
         res.send('hello');
     });

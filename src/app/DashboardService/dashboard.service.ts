@@ -9,29 +9,46 @@ export class DashboardService {
   constructor( private http: Http, private router: Router) { }
 
   // Base URL for Petfinder API
-  private petsUrl = 'http://localhost:3000/dashboard';
+  private dashboard_url = 'http://localhost:3000/dashboard';
+  private manage_applications_url = 'http://localhost:3000/manage-applications/'
 
-  // Get a list if pets based on animal
-  findPets() {
-
-    // End point for list of pets:
-    // http://api.petfinder.com/pet.find?key=[API_KEY]&animal=[ANIMAL]&format=json&location=texas
-    
-
+  
+  /*  -----------  Create Program API   ---------------- */
+  
+  getPrograms() {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-
-    this.http.get('http://localhost:3000/dashboard',  {
-      headers: headers
+    this.http.get(this.dashboard_url,  {
+    headers: headers
     })
       .subscribe(
         (res) => {
-          console.log(res);
-            this.router.navigate(['/dashboard'])
+           console.log('success');
+             this.router.navigate(['/dashboard']);
 
-       
-     }
-   );
+        
+      }
+    );
+  }
+
+
+
+  /*  -----------  Manage Application API   ---------------- */
+
+  getApplications() {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    this.http.get(this.manage_applications_url,  {
+    headers: headers
+    })
+      .subscribe(
+        (res) => {
+           console.log('success');
+             this.router.navigate(['/manage-applications']);
+
+        
+      }
+    );
   }
 
   

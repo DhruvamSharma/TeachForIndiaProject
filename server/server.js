@@ -2,9 +2,6 @@ var app = require('./config/express');
 
 var http = require('http');
 
-// API routes
-require('./app/routes/routes.js')(app);
-
 /**
  * Get port from environment and store in Express.
  */

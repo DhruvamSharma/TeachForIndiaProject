@@ -11,4 +11,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Point static path to dist
 app.use(express.static(path.join(__dirname,'../../', 'dist')));
+
+// API routes
+require('../app/routes/routes.js')(app);
+require('../app/routes/staff/dashboard-routes.js')(app);
+
+
 module.exports = app;

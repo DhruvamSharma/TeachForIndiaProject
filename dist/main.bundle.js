@@ -42,21 +42,33 @@ var DashboardService = (function () {
         this.http = http;
         this.router = router;
         // Base URL for Petfinder API
-        this.petsUrl = 'http://localhost:3000/dashboard';
+        this.dashboard_url = 'http://localhost:3000/dashboard';
+        this.manage_applications_url = 'http://localhost:3000/manage-applications/';
     }
-    // Get a list if pets based on animal
-    DashboardService.prototype.findPets = function () {
-        // End point for list of pets:
-        // http://api.petfinder.com/pet.find?key=[API_KEY]&animal=[ANIMAL]&format=json&location=texas
+    /*  -----------  Create Program API   ---------------- */
+    DashboardService.prototype.getPrograms = function () {
         var _this = this;
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        this.http.get('http://localhost:3000/dashboard', {
+        this.http.get(this.dashboard_url, {
             headers: headers
         })
             .subscribe(function (res) {
-            console.log(res);
+            console.log('success');
             _this.router.navigate(['/dashboard']);
+        });
+    };
+    /*  -----------  Manage Application API   ---------------- */
+    DashboardService.prototype.getApplications = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        this.http.get(this.manage_applications_url, {
+            headers: headers
+        })
+            .subscribe(function (res) {
+            console.log('success');
+            _this.router.navigate(['/manage-applications']);
         });
     };
     DashboardService = __decorate([
@@ -295,7 +307,7 @@ var LandingComponent = (function () {
     LandingComponent.prototype.ngOnInit = function () {
     };
     LandingComponent.prototype.callMe = function () {
-        this.dashboard.findPets();
+        //this.dashboard.findPets();
     };
     LandingComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -333,7 +345,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/landing/staff/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<div class=\"site\">\n  <nav class=\"site-nav flex-center\">\n    <ul>\n    \n  <li><button class=\"active btn\" (click)=\"shift(1)\">News</button></li>\n  <li><button class=\"active btn\" (click)=\"shift(2)\">Contact</button></li>\n  <li><button class=\"active btn\" (click)=\"shift(3)\">About</button></li>\n</ul>\n  </nav>\n  <main class=\"site-content\">\n    <header class=\"content-header flex-center\">\n      <h1 class=\"section-title\">HEADER</h1>\n    </header>\n    <section class=\"content-topic\">\n      <!-- main body -->\n      <app-new-program *ngIf=\"check1\"></app-new-program>\n      <app-manage-application *ngIf=\"check2\"></app-manage-application>\n      <app-feedback *ngIf=\"check3\"></app-feedback>\n    </section>\n  </main>\n</div>\n\n\n"
+module.exports = "\n\n<div class=\"site\">\n  <nav class=\"site-nav flex-center\">\n    <ul>\n    \n  <li><button class=\"active btn\" (click)=\"shift(1)\">Create a Programme</button></li>\n  <li><button class=\"active btn\" (click)=\"shift(2)\">Manage Applications</button></li>\n  <li><button class=\"active btn\" (click)=\"shift(3)\">ManageFeedback</button></li>\n</ul>\n  </nav>\n  <main class=\"site-content\">\n    <header class=\"content-header flex-center\">\n      <h1 class=\"section-title\">HEADER</h1>\n    </header>\n    <section class=\"content-topic\">\n      <!-- main body -->\n      <app-new-program *ngIf=\"check1\"></app-new-program>\n      <app-manage-application *ngIf=\"check2\"></app-manage-application>\n      <app-feedback *ngIf=\"check3\"></app-feedback>\n    </section>\n  </main>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -343,6 +355,7 @@ module.exports = "\n\n<div class=\"site\">\n  <nav class=\"site-nav flex-center\
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__DashboardService_dashboard_service__ = __webpack_require__("../../../../../src/app/DashboardService/dashboard.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -353,8 +366,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var DashboardComponent = (function () {
-    function DashboardComponent() {
+    function DashboardComponent(dashboard) {
+        this.dashboard = dashboard;
         this.check1 = true;
         this.check2 = false;
         this.check3 = false;
@@ -364,11 +379,13 @@ var DashboardComponent = (function () {
             this.check1 = true;
             this.check2 = false;
             this.check3 = false;
+            this.dashboard.getPrograms();
         }
         if (num == 2) {
             this.check2 = true;
             this.check1 = false;
             this.check3 = false;
+            this.dashboard.getApplications();
         }
         if (num == 3) {
             this.check3 = true;
@@ -384,7 +401,7 @@ var DashboardComponent = (function () {
             template: __webpack_require__("../../../../../src/app/landing/staff/dashboard/dashboard.component.html"),
             styles: [__webpack_require__("../../../../../src/app/landing/staff/dashboard/dashboard.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__DashboardService_dashboard_service__["a" /* DashboardService */]])
     ], DashboardComponent);
     return DashboardComponent;
 }());
@@ -658,7 +675,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/landing/staff/dashboard/new-program/create-program/create-program.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n    <div class=\"col-lg-12\">\n      <div class=\"well\" style=\"margin-top: 100px;\">\n            <form>\n            <div class=\"row\">\n              <div class=\"form-group col-lg-6\">\n              <label for= \"firstname\">First Name </label>\n              <input type=\"text\"  class =\"form-control\" id=\"firstname\"  placeholder=\"Enter your first name\">\n            </div>\n              <div class=\"form-group col-lg-6\">\n              <label for= \"lastname\">Last Name </label>\n              <input type=\"text\"  class =\"form-control\" id=\"lastname\"  placeholder=\"Enter your last name\">\n            </div>\n            </div>\n            <div class=\"row\">\n              <div class=\"form-group col-lg-6\">\n              <label for= \"Fathername\">Father's Name </label>\n              <input type=\"text\"  class =\"form-control\" id=\"fathername\"  placeholder=\"Enter your father's name\">\n            </div>\n              <div class=\"form-group col-lg-6\">\n              <label for= \"Mothername\">Mothers Name </label>\n              <input type=\"text\"  class =\"form-control\" id=\"mothername\"  placeholder=\"Enter your Mother's name\">\n            </div>\n            </div>\n            <div class=\"row\">\n              <div class=\"form-group col-lg-4\">\n                <label for=\"inputCourse\">Course</label>\n                <select id=\"inputCourse\" class=\"form-control\">\n                  <option selected>Choose...</option>\n                  <option>...</option>\n                </select>\n              </div>\n              <div class=\"form-group col-lg-4\">\n                <label for=\"inputBranch\">Branch</label>\n                <select id=\"inputBranch\" class=\"form-control\">\n                  <option selected>Choose...</option>\n                  <option>...</option>\n                </select>\n              </div>\n              <div class=\"form-group col-lg-4\">\n                <label for=\"inputYear\"> Current Year</label>\n                <select id=\"inputYear\" class=\"form-control\">\n                  <option selected>Choose...</option>\n                  <option>...</option>\n                </select>\n              </div>  \n            </div>\n             <div class=\"form-group\">\n              <label for=\"inputRollNumber\">Roll Number</label>\n              <input type=\"Number\" class=\"form-control\" id=\"rollNumber\" placeholder=\"14001001036\">\n            </div>\n\n            <div class=\"form-group\">\n              <label for=\"InputEmail1\">Email address</label>\n              <input type=\"email\" class=\"form-control\" id=\"InputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\">\n              <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n            </div>\n\n             <div class=\"form-group\">\n              <label for=\"inputAddress\">Permanent Address</label>\n              <input type=\"text\" class=\"form-control\" id=\"permanentAddress\" placeholder=\"1234 Main St\">\n            </div>\n             <div class=\"form-row\">\n              <div class=\"form-group col-lg-6\">\n                <label for=\"inputCity\">City</label>\n                <input type=\"text\" class=\"form-control\" id=\"permanentCity\">\n              </div>\n              <div class=\"form-group col-lg-4\">\n                <label for=\"inputState\">State</label>\n                <select id=\"permanentState\" class=\"form-control\">\n                  <option selected>Choose...</option>\n                  <option>...</option>\n                </select>\n              </div>\n              <div class=\"form-group col-lg-2\">\n                <label for=\"inputZip\">Zip</label>\n                <input type=\"text\" class=\"form-control\" id=\"permanentZip\">\n              </div>\n            </div>\n\n            <div class=\"form-group\">\n              <label for=\"inputAddress2\">Correspondance Address</label>\n              <input type=\"text\" class=\"form-control\" id=\"correspondanceAddress\" placeholder=\"Apartment, studio, or floor\">\n            </div>\n\n            <div class=\"form-row\">\n              <div class=\"form-group col-lg-6\">\n                <label for=\"inputCity\">City</label>\n                <input type=\"text\" class=\"form-control\" id=\"correspondanceCity\">\n              </div>\n              <div class=\"form-group col-lg-4\">\n                <label for=\"inputState\">State</label>\n                <select id=\"corespondanceState\" class=\"form-control\">\n                  <option selected>Choose...</option>\n                  <option>...</option>\n                </select>\n              </div>\n              <div class=\"form-group col-lg-2\">\n                <label for=\"inputZip\">Zip</label>\n                <input type=\"text\" class=\"form-control\" id=\"correspondanceZip\">\n              </div>\n            </div>\n\n            <div class=\"form-check\">\n              <input type=\"checkbox\" class=\"form-check-input\" id=\"Check1\">\n              <label class=\"form-check-label\" for=\"Check1\">Check me out</label>\n            </div>\n            <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n          </form> \n          </div>\n    </div>\n  </div>"
+module.exports = "<!-- Form contact -->\n<form>\n\n  <p class=\"h5 text-center mb-4\">Write to us</p>\n\n  <div class=\"md-form\">\n      <i class=\"fa fa-user prefix grey-text\"></i>\n      <input type=\"text\" id=\"form3\" class=\"form-control\">\n      <label for=\"form3\">Your name</label>\n  </div>\n\n  <div class=\"md-form\">\n      <i class=\"fa fa-envelope prefix grey-text\"></i>\n      <input type=\"text\" id=\"form2\" class=\"form-control\">\n      <label for=\"form2\">Your email</label>\n  </div>\n\n  <div class=\"md-form\">\n      <i class=\"fa fa-tag prefix grey-text\"></i>\n      <input type=\"text\" id=\"form32\" class=\"form-control\">\n      <label for=\"form34\">Subject</label>\n  </div>\n\n  <div class=\"md-form\">\n      <i class=\"fa fa-pencil prefix grey-text\"></i>\n      <textarea type=\"text\" id=\"form8\" class=\"md-textarea\" style=\"height: 100px\"></textarea>\n      <label for=\"form8\">Your message</label>\n  </div>\n\n  <div class=\"text-center\">\n      <button class=\"btn btn-unique\">Send <i class=\"fa fa-paper-plane-o ml-1\"></i></button>\n  </div>\n\n</form>\n<!-- Form contact -->"
 
 /***/ }),
 

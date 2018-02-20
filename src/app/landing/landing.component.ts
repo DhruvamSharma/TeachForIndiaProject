@@ -15,7 +15,7 @@ export class LandingComponent implements OnInit {
   }
 
   callMe() {
-    this.dashboard.findPets();
+    //this.dashboard.findPets();
   }
 
 }
