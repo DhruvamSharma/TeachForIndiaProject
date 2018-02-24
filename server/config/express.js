@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname,'../../', 'dist')));
 
 // API routes
 require('../app/routes/routes.js')(app);
-require('../app/routes/staff/dashboard-routes.js')(app);
+require('../app/routes/global/applications.js')(app);
 
 
 module.exports = app;

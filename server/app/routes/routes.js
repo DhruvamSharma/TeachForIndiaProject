@@ -10,7 +10,7 @@ module.exports = function(app) {
         res.send('hello');
     });
 
-    app.get('/manage-applications', (req,res) => {
+    app.get('/applications', (req,res) => {
         res.send('hello');
     });
 
