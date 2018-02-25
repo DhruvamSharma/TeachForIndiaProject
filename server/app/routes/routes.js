@@ -14,9 +14,16 @@ module.exports = function(app) {
         res.send('hello');
     });
 
+    app.get('/user', (req,res) => {
+        res.send('success');
+    })
+
     app.get('/landing', (req,res) => {
         res.send('hello');
     });
+
+    require('./global/applications.js')(app);
+    require('./user/user.js')(app);
 
     // Catch all other routes and return the index file
     app.get('*', (req, res) => {
