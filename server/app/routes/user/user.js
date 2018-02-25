@@ -18,7 +18,7 @@ module.exports = function(app) {
     app.post('/new-user/', (req,res) => {
         var char = new User({
             username: req.headers.username,
-            userId: req.headers.userId,
+            userId: req.headers.userid,
             age: req.headers.age,
             contact: req.headers.contact,
             email: req.headers.email,

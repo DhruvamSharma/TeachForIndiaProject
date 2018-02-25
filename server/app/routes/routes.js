@@ -18,12 +18,26 @@ module.exports = function(app) {
         res.send('success');
     })
 
+    app.get('/staff', (req,res) => {
+        res.send('success');
+    })
+
+    app.get('/application', (req,res) => {
+        res.send('success');
+    })
+
+    app.get('/feedback', (req,res) => {
+        res.send('success');
+    })
+
     app.get('/landing', (req,res) => {
         res.send('hello');
     });
 
     require('./global/applications.js')(app);
     require('./user/user.js')(app);
+    require('./staff/staff.js')(app);
+    require('./global/feedbacks.js')(app);
 
     // Catch all other routes and return the index file
     app.get('*', (req, res) => {
